@@ -21,3 +21,36 @@ export async function GET({ params }) {
 }
 
 
+// PUT update monument
+export async function PUT({ params, request }) {
+ 
+    const { id } = params;
+ 
+    const { name, location, type, year_built, height_m, description } = await request.json();
+ 
+    if (!name || !location) {
+        return Response.json(
+            { message: 'Missing required fields' },
+            { status: 400 }
+        );
+    }
+ 
+    const [result] = await pool.query(
+        `UPDATE monuments
+        SET name = ?, location = ?, type = ?, year_built = ?, height_m = ?, description = ?
+        WHERE id = ?`,
+        [name, location, type, year_built, height_m, description, id]
+    );
+ 
+    if (result.affectedRows === 0) {
+        return Response.json(
+            { message: 'Monument not found' },
+            { status: 404 }
+        );
+    }
+ 
+    return Response.json(
+        { message: 'Monument updated' },
+        { status: 200 }
+    );
+}
