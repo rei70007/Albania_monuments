@@ -54,3 +54,23 @@ export async function PUT({ params, request }) {
         { status: 200 }
     );
 }
+
+// DELETE monument
+export async function DELETE({ params }) {
+ 
+    const { id } = params;
+ 
+    const [result] = await pool.query(
+        'DELETE FROM monuments WHERE id = ?',
+        [id]
+    );
+ 
+    if (result.affectedRows === 0) {
+        return Response.json(
+            { message: 'Monument not found' },
+            { status: 404 }
+        );
+    }
+ 
+    return new Response(null, { status: 204 });
+}
