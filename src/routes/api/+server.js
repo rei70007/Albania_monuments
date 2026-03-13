@@ -1,6 +1,5 @@
 import pool from '$lib/server/database.js';
 
-
 // GET all monuments (public)
 export async function GET() {
 
@@ -10,17 +9,12 @@ export async function GET() {
 
 }
 
-
-// POST create monument (protected)
 export async function POST({ request }) {
 
-    if (!checkAuth(request)) {
-        return Response.json({ message: 'Unauthorized' }, { status: 401 });
-    }
+    const { name, location, type, year_built, height_m, description } = await request.json();
 
-    const { name, location, type, height } = await request.json();
-
-    if (!name || !location || !type) {
+    // validate required fields
+    if (!name || !location) {
         return Response.json(
             { message: 'Missing required fields' },
             { status: 400 }
@@ -28,8 +22,10 @@ export async function POST({ request }) {
     }
 
     const [result] = await pool.query(
-        'INSERT INTO monuments (name, location, type, height) VALUES (?, ?, ?, ?)',
-        [name, location, type, height]
+        `INSERT INTO monuments 
+        (name, location, type, year_built, height_m, description)
+        VALUES (?, ?, ?, ?, ?, ?)`,
+        [name, location, type, year_built, height_m, description]
     );
 
     return Response.json(
