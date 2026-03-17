@@ -1,0 +1,176 @@
+{
+  "info": {
+    "_postman_id": "9b95ae97-802b-4894-a81f-3391350f6ca7",
+    "name": "Albania_monuments",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52689973",
+    "_collection_link": "https://go.postman.co/collection/52689973-9b95ae97-802b-4894-a81f-3391350f6ca7?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "GET ALL MONUMENTS",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5173/api/monuments",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5173",
+          "path": [
+            "api",
+            "monuments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET MONUMENTS BY ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5173/api/monuments/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5173",
+          "path": [
+            "api",
+            "monuments",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CREATE MONUMENTS",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "albania2026",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "admin",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 21,\n  \"name\": \"Test Monument\",\n  \"location\": \"Test\",\n  \"type\": \"test\",\n  \"year_built\": 1968,\n  \"height_m\": 11,\n  \"description\": \"Statue of Test\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5173/api/monuments",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5173",
+          "path": [
+            "api",
+            "monuments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "UPDATE MONUMENT",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "albania2026",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "admin",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 21,\n  \"name\": \"Test Monument Update\",\n  \"location\": \"Test Update\",\n  \"type\": \"test\",\n  \"year_built\": 1968,\n  \"height_m\": 11,\n  \"description\": \"Statue of Test Update\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5173/api/monuments/21",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5173",
+          "path": [
+            "api",
+            "monuments",
+            "21"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE MONUMENT",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "albania2026",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "admin",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 21,\n  \"name\": \"Test Monument Update\",\n  \"location\": \"Test Update\",\n  \"type\": \"test\",\n  \"year_built\": 1968,\n  \"height_m\": 11,\n  \"description\": \"Statue of Test Update\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5173/api/monuments/21",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5173",
+          "path": [
+            "api",
+            "monuments",
+            "21"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
