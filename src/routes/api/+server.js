@@ -1,4 +1,4 @@
-import pool from '$lib/server/database.js';
+import pool from '$lib/server/db';
 
 // GET all monuments (public)
 export async function GET() {
