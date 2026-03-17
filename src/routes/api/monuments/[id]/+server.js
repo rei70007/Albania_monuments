@@ -1,4 +1,7 @@
-import pool from '$lib/server/database.js';
+import { json } from '@sveltejs/kit';
+import pool from '$lib/server/db';
+import { checkAuth } from '$lib/server/auth';
+ 
 
 // GET monument by id
 export async function GET({ params }) {
@@ -73,5 +76,5 @@ export async function DELETE({ params }) {
     }
  
     return new Response(null, { status: 204 });
-    
+
 }
