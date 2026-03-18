@@ -14,7 +14,7 @@ export async function POST({ request }) {
 
     const { name, location, type, year_built, height_m, description } = await request.json();
 
-    // validate required fields
+// validate required fields
     if (!name || !location) {
         return Response.json(
             { message: 'Missing required fields' },
